@@ -1,19 +1,24 @@
-import { FormsModule } from '@angular/forms';
-import { TemplateFormComponent } from './template-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormDebugComponent } from '../form-debug/form-debug.component';
-
-
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { TemplateFormComponent } from './template-form.component';
+ 
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    HttpClientModule,
   ],
   declarations: [
-    TemplateFormComponent,
-    FormDebugComponent
+    TemplateFormComponent
+  ],
+  exports: [
+    TemplateFormComponent
   ],
 })
 export class TemplateFormModule { }
