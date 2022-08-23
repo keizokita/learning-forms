@@ -19,7 +19,10 @@ export class TemplateFormComponent implements OnInit {
     //console.log(this.usuario);
     
     this.http.post('https://httpbin.org/post', JSON.stringify(form.value))
-      .subscribe((dados: any) => console.log(dados));
+      .subscribe((dados: any) => {
+        console.log(dados)
+      form.form.reset();
+      });
   }
     
   constructor(private http: HttpClient) { }
@@ -38,7 +41,11 @@ export class TemplateFormComponent implements OnInit {
     }
   }
 
-  consultaCEP(cep: any, form: any) {
+  consultaCEP(event: any, form: any) {
+
+    if (!event.target.value) return;
+    let cep = event.taget.value;
+
     // Nova variável "cep" somente com dígitos.
     cep = cep.replace(/\D/g, '');
 
